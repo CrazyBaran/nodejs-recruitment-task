@@ -1,6 +1,28 @@
 {
   "version": 2,
   "projects": {
+    "authentication": {
+      "root": "libs/authentication",
+      "sourceRoot": "libs/authentication/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "outputs": ["{options.outputFile}"],
+          "options": {
+            "lintFilePatterns": ["libs/authentication/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/authentication"],
+          "options": {
+            "jestConfig": "libs/authentication/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
     "authentication-microservice": {
       "root": "apps/authentication-microservice",
       "sourceRoot": "apps/authentication-microservice/src",
@@ -47,6 +69,50 @@
           "outputs": ["coverage/apps/authentication-microservice"],
           "options": {
             "jestConfig": "apps/authentication-microservice/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "movies-api": {
+      "root": "libs/movies/api",
+      "sourceRoot": "libs/movies/api/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "outputs": ["{options.outputFile}"],
+          "options": {
+            "lintFilePatterns": ["libs/movies/api/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/movies/api"],
+          "options": {
+            "jestConfig": "libs/movies/api/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "movies-contracts": {
+      "root": "libs/movies/contracts",
+      "sourceRoot": "libs/movies/contracts/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "outputs": ["{options.outputFile}"],
+          "options": {
+            "lintFilePatterns": ["libs/movies/contracts/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/movies/contracts"],
+          "options": {
+            "jestConfig": "libs/movies/contracts/jest.config.js",
             "passWithNoTests": true
           }
         }

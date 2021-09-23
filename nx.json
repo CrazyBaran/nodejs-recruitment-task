@@ -27,7 +27,16 @@
     ]
   },
   "projects": {
+    "authentication": {
+      "tags": []
+    },
     "authentication-microservice": {
+      "tags": []
+    },
+    "movies-api": {
+      "tags": []
+    },
+    "movies-contracts": {
       "tags": []
     },
     "movies-microservice": {
