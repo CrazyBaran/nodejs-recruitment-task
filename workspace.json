@@ -1,0 +1,111 @@
+{
+  "version": 2,
+  "projects": {
+    "authentication-microservice": {
+      "root": "apps/authentication-microservice",
+      "sourceRoot": "apps/authentication-microservice/src",
+      "projectType": "application",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/node:build",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/apps/authentication-microservice",
+            "main": "apps/authentication-microservice/src/main.ts",
+            "tsConfig": "apps/authentication-microservice/tsconfig.app.json",
+            "assets": ["apps/authentication-microservice/src/assets"]
+          },
+          "configurations": {
+            "production": {
+              "optimization": true,
+              "extractLicenses": true,
+              "inspect": false,
+              "fileReplacements": [
+                {
+                  "replace": "apps/authentication-microservice/src/environments/environment.ts",
+                  "with": "apps/authentication-microservice/src/environments/environment.prod.ts"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "executor": "@nrwl/node:execute",
+          "options": {
+            "buildTarget": "authentication-microservice:build"
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "outputs": ["{options.outputFile}"],
+          "options": {
+            "lintFilePatterns": ["apps/authentication-microservice/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/apps/authentication-microservice"],
+          "options": {
+            "jestConfig": "apps/authentication-microservice/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "movies-microservice": {
+      "root": "apps/movies-microservice",
+      "sourceRoot": "apps/movies-microservice/src",
+      "projectType": "application",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/node:build",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/apps/movies-microservice",
+            "main": "apps/movies-microservice/src/main.ts",
+            "tsConfig": "apps/movies-microservice/tsconfig.app.json",
+            "assets": ["apps/movies-microservice/src/assets"]
+          },
+          "configurations": {
+            "production": {
+              "optimization": true,
+              "extractLicenses": true,
+              "inspect": false,
+              "fileReplacements": [
+                {
+                  "replace": "apps/movies-microservice/src/environments/environment.ts",
+                  "with": "apps/movies-microservice/src/environments/environment.prod.ts"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "executor": "@nrwl/node:execute",
+          "options": {
+            "buildTarget": "movies-microservice:build"
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "outputs": ["{options.outputFile}"],
+          "options": {
+            "lintFilePatterns": ["apps/movies-microservice/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/apps/movies-microservice"],
+          "options": {
+            "jestConfig": "apps/movies-microservice/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    }
+  },
+  "cli": {
+    "defaultCollection": "@nrwl/node"
+  },
+  "defaultProject": "authentication-microservice"
+}

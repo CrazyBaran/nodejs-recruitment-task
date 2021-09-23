@@ -1,16 +1,46 @@
 {
-  "name": "node-auth-svc",
-  "version": "1.0.0",
-  "description": "",
+  "name": "nodejs-recruitment-task",
+  "version": "0.0.0",
+  "license": "MIT",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "nx serve",
+    "build": "nx build",
+    "test": "nx test"
   },
-  "keywords": [],
-  "author": "",
-  "license": "",
+  "private": true,
   "dependencies": {
+    "@nestjs/common": "^7.0.0",
+    "@nestjs/core": "^7.0.0",
+    "@nestjs/platform-express": "^7.0.0",
     "body-parser": "1.19.0",
+    "env-var": "^7.0.1",
     "express": "4.17.1",
-    "jsonwebtoken": "^8.5.1"
+    "jsonwebtoken": "^8.5.1",
+    "reflect-metadata": "^0.1.13",
+    "rxjs": "~6.6.3",
+    "tslib": "^2.0.0"
+  },
+  "devDependencies": {
+    "@nestjs/schematics": "^7.0.0",
+    "@nestjs/testing": "^7.0.0",
+    "@nrwl/cli": "12.9.0",
+    "@nrwl/eslint-plugin-nx": "12.9.0",
+    "@nrwl/jest": "12.9.0",
+    "@nrwl/linter": "12.9.0",
+    "@nrwl/nest": "^12.9.0",
+    "@nrwl/node": "12.9.0",
+    "@nrwl/tao": "12.9.0",
+    "@nrwl/workspace": "12.9.0",
+    "@types/jest": "26.0.24",
+    "@types/node": "14.14.33",
+    "@typescript-eslint/eslint-plugin": "~4.28.3",
+    "@typescript-eslint/parser": "~4.28.3",
+    "eslint": "7.22.0",
+    "eslint-config-prettier": "8.1.0",
+    "jest": "27.0.3",
+    "jshint": "^2.13.1",
+    "prettier": "^2.3.1",
+    "ts-jest": "27.0.3",
+    "typescript": "~4.3.5"
   }
 }

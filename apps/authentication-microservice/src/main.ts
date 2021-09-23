@@ -1,12 +1,13 @@
-const express = require("express");
-const bodyParser = require("body-parser");
-const { authFactory, AuthError } = require("./auth");
+import * as express from 'express';
+import * as bodyParser from 'body-parser';
+import { authFactory, AuthError } from './app/auth';
+import { environment } from './environments/environment';
 
 const PORT = 3000;
-const { JWT_SECRET } = process.env;
+const JWT_SECRET = environment.jwtSecret;
 
 if (!JWT_SECRET) {
-  throw new Error("Missing JWT_SECRET env var. Set it and restart the server");
+  throw new Error('Missing JWT_SECRET env var. Set it and restart the server');
 }
 
 const auth = authFactory(JWT_SECRET);
@@ -14,15 +15,15 @@ const app = express();
 
 app.use(bodyParser.json());
 
-app.post("/auth", (req, res, next) => {
+app.post('/auth', (req, res, next) => {
   if (!req.body) {
-    return res.status(400).json({ error: "invalid payload" });
+    return res.status(400).json({ error: 'invalid payload' });
   }
 
   const { username, password } = req.body;
 
   if (!username || !password) {
-    return res.status(400).json({ error: "invalid payload" });
+    return res.status(400).json({ error: 'invalid payload' });
   }
 
   try {
@@ -44,7 +45,7 @@ app.use((error, _, res, __) => {
   );
   console.error(error);
 
-  return res.status(500).json({ error: "internal server error" });
+  return res.status(500).json({ error: 'internal server error' });
 });
 
 app.listen(PORT, () => {
