@@ -36,10 +36,19 @@
     "movies-api": {
       "tags": []
     },
+    "movies-application": {
+      "tags": []
+    },
     "movies-contracts": {
       "tags": []
     },
+    "movies-domain": {
+      "tags": []
+    },
     "movies-microservice": {
+      "tags": []
+    },
+    "movies-typeorm-mssql": {
       "tags": []
     }
   }

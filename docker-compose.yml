@@ -1,0 +1,21 @@
+version: '3.2'
+services:
+  authentication-microservice:
+    build:
+      context: ./
+      dockerfile: ./apps/authentication-microservice/Dockerfile
+    ports:
+      - published: ${APP_PORT:-3000}
+        target: 3000
+    environment:
+      NX_JWT_SECRET: ${JWT_SECRET}
+  movies-microservice:
+    build:
+      context: ./
+      dockerfile: ./apps/movies-microservice/Dockerfile
+    ports:
+      - published: ${APP_PORT:-3333}
+        target: 3333
+    environment:
+      NX_JWT_SECRET: ${JWT_SECRET}
+      NX_JWT_ISS: https://www.netguru.com/

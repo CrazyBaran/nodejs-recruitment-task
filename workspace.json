@@ -35,7 +35,8 @@
             "outputPath": "dist/apps/authentication-microservice",
             "main": "apps/authentication-microservice/src/main.ts",
             "tsConfig": "apps/authentication-microservice/tsconfig.app.json",
-            "assets": ["apps/authentication-microservice/src/assets"]
+            "assets": ["apps/authentication-microservice/src/assets"],
+            "generatePackageJson": true
           },
           "configurations": {
             "production": {
@@ -96,6 +97,28 @@
         }
       }
     },
+    "movies-application": {
+      "root": "libs/movies/application",
+      "sourceRoot": "libs/movies/application/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "outputs": ["{options.outputFile}"],
+          "options": {
+            "lintFilePatterns": ["libs/movies/application/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/movies/application"],
+          "options": {
+            "jestConfig": "libs/movies/application/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
     "movies-contracts": {
       "root": "libs/movies/contracts",
       "sourceRoot": "libs/movies/contracts/src",
@@ -118,6 +141,28 @@
         }
       }
     },
+    "movies-domain": {
+      "root": "libs/movies/domain",
+      "sourceRoot": "libs/movies/domain/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "outputs": ["{options.outputFile}"],
+          "options": {
+            "lintFilePatterns": ["libs/movies/domain/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/movies/domain"],
+          "options": {
+            "jestConfig": "libs/movies/domain/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
     "movies-microservice": {
       "root": "apps/movies-microservice",
       "sourceRoot": "apps/movies-microservice/src",
@@ -130,7 +175,8 @@
             "outputPath": "dist/apps/movies-microservice",
             "main": "apps/movies-microservice/src/main.ts",
             "tsConfig": "apps/movies-microservice/tsconfig.app.json",
-            "assets": ["apps/movies-microservice/src/assets"]
+            "assets": ["apps/movies-microservice/src/assets"],
+            "generatePackageJson": true
           },
           "configurations": {
             "production": {
@@ -164,6 +210,28 @@
           "outputs": ["coverage/apps/movies-microservice"],
           "options": {
             "jestConfig": "apps/movies-microservice/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "movies-typeorm-mssql": {
+      "root": "libs/movies/typeorm-mssql",
+      "sourceRoot": "libs/movies/typeorm-mssql/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "outputs": ["{options.outputFile}"],
+          "options": {
+            "lintFilePatterns": ["libs/movies/typeorm-mssql/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/movies/typeorm-mssql"],
+          "options": {
+            "jestConfig": "libs/movies/typeorm-mssql/jest.config.js",
             "passWithNoTests": true
           }
         }

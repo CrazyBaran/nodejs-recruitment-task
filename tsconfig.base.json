@@ -19,8 +19,17 @@
         "libs/authentication/src/index.ts"
       ],
       "@nodejs-recruitment-task/movies/api": ["libs/movies/api/src/index.ts"],
+      "@nodejs-recruitment-task/movies/application": [
+        "libs/movies/application/src/index.ts"
+      ],
       "@nodejs-recruitment-task/movies/contracts": [
         "libs/movies/contracts/src/index.ts"
+      ],
+      "@nodejs-recruitment-task/movies/domain": [
+        "libs/movies/domain/src/index.ts"
+      ],
+      "@nodejs-recruitment-task/movies/typeorm-mssql": [
+        "libs/movies/typeorm-mssql/src/index.ts"
       ]
     }
   },

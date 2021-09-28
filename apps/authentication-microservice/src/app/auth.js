@@ -25,7 +25,7 @@ const authFactory = (secret) => (username, password) => {
   if (!user || user.password !== password) {
     throw new AuthError('invalid username or password');
   }
-
+  console.log(secret);
   return jwt.sign(
     {
       userId: user.id,
